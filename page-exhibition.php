@@ -146,9 +146,6 @@ get_header('exhibition'); ?>
 
         </header>
 
-        <!-- FRASE LATERAL -->
-        <!-- <h4 class="location">Mirai Art Gallery &amp; Exhibition Center, Sapporo, Japan</h4> -->
-
         <!-- CONTEUDO DO SLIDE -->
         <div class="slides">
 
@@ -169,13 +166,11 @@ get_header('exhibition'); ?>
                     ?>
                     <?php // Abertura
                         $dataAbertura = str_replace("/", "-", get_field("abertura") );
-                        // echo date('d M Y', strtotime($dataAbertura));
                         echo strftime('%d %b %Y', strtotime($dataAbertura));
                     ?>
                     até
                     <?php // Final
                         $dataFinal = str_replace("/", "-", get_field("exposicao") );
-                        // echo date('d M Y', strtotime($dataFinal));
                         echo strftime('%d %b %Y', strtotime($dataFinal));
                     ?>
                 </p>

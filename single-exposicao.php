@@ -50,14 +50,12 @@ $entrada = 0; ?>
             <div>De <span style="text-transform: capitalize;">
                 <?php // Abertura
                     $dataAbertura = str_replace("/", "-", get_field("abertura") );
-                    // echo date('d M Y', strtotime($dataAbertura));
                     echo strftime('%d %b %Y', strtotime($dataAbertura));
                 ?></span>
             </div>
             <div>Até <span style="text-transform: capitalize;">
                 <?php // Final
                     $dataFinal = str_replace("/", "-", get_field("exposicao") );
-                    // echo date('d M Y', strtotime($dataFinal));
                     echo strftime('%d %b %Y', strtotime($dataFinal));
                 ?></span>
             </div>
