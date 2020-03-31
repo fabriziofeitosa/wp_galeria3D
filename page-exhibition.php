@@ -159,24 +159,23 @@ get_header('exhibition'); ?>
                     <span><?= get_field("nome_s")[0]->post_title; ?></span>
                     <div class="slide__number">Curadoria</div>
                 </h3>
-                <p class="slide__date">
-                    <?php
-                        setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+                <p class="slide__date"><?php setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
                         date_default_timezone_set('America/Sao_Paulo');
-                    ?>
-                    <?php // Abertura
+
+                        // Abertura
                         $dataAbertura = str_replace("/", "-", get_field("abertura") );
                         echo strftime('%d %b %Y', strtotime($dataAbertura));
-                    ?>
-                    até
-                    <?php // Final
+                    ?> até <?php // Final
                         $dataFinal = str_replace("/", "-", get_field("exposicao") );
                         echo strftime('%d %b %Y', strtotime($dataFinal));
-                    ?>
-                </p>
-                <p class="slide__author">
-                    Por <?php the_author() ?>
-                </p>
+                    ?></p>
+                <!-- Autor da Postagem -->
+                <div class="slide__author">
+                    <span class="avatar__author">
+                        <?php echo get_avatar( get_the_author_meta( 'ID' ), 22 ); ?>
+                    </span>
+                    <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">Por <?php the_author() ?></a>
+                </div>
             </div>
 
             <?php endwhile; wp_reset_query(); ?>

@@ -337,6 +337,11 @@ a:focus {
 	text-transform: uppercase;
 	color: #333333;
 	text-align: right;
+	line-height: 22px;
+}
+.slide__author > .avatar__author img {
+	border-radius: 100%;
+	vertical-align: sub;
 }
 
 .slide__number {
