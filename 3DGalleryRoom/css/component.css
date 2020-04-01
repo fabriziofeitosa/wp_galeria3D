@@ -279,6 +279,6 @@ body {
 		margin-top: 5px;
 	}
 	.gr-gallery figure {
-		top: 30px !important;
+		transform: translateY(-10px);
 	}
 }
