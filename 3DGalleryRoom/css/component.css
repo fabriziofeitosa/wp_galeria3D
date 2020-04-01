@@ -161,6 +161,7 @@ body {
 }
 
 .gr-caption {
+	z-index: 9999;
 	position: absolute;
 	width: 100%;
 	max-width: 90%;
