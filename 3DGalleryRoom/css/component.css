@@ -264,6 +264,9 @@ body {
 		left: 5%;
 		margin-left: auto;
 	}
+	.gr-gallery figure img {
+		max-height: 40vh;
+	}
 }
 @media only screen and (max-width: 1023px) {
 	.js .container > h1 {
