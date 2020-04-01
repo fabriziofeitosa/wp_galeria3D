@@ -238,9 +238,13 @@ body {
 ###################################################
 */
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 380px) {
 	.js .container > h1 {
 		font-size: 11px;
+	}
+	.gr-gallery figcaption {
+		font-size: 4px;
+		margin-top: 5px;
 	}
 }
 @media only screen and (max-width: 575px) {

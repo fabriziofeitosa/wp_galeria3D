@@ -49,9 +49,10 @@ get_header('exhibition'); ?>
             <!-- Sala -->
             <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
                 <div class="room <?php echo $addClass = ($primeira == 0) ? 'room--current' : '' ?>">
-                    <div class='room__side room__side--back'>
+
+                    <div class='room__side room__side--left'>
                         <?php for ($i = 1; $i <= 10; $i++) { ?>
-                            <?php if( $i <= 2 ) { ?>
+                            <?php if ($i < 4) { ?>
                                 <?php if( have_rows("obra_$i") ):
                                     while ( have_rows("obra_$i") ) : the_row();
                                         // Imagem
@@ -64,9 +65,9 @@ get_header('exhibition'); ?>
                         <?php } ?>
                     </div>
 
-                    <div class='room__side room__side--left'>
+                    <div class='room__side room__side--back'>
                         <?php for ($i = 1; $i <= 10; $i++) { ?>
-                            <?php if ($i > 2 && $i <= 6) { ?>
+                            <?php if( $i == 4 ) { ?>
                                 <?php if( have_rows("obra_$i") ):
                                     while ( have_rows("obra_$i") ) : the_row();
                                         // Imagem
@@ -81,7 +82,7 @@ get_header('exhibition'); ?>
 
                     <div class='room__side room__side--right'>
                         <?php for ($i = 1; $i <= 10; $i++) { ?>
-                            <?php if ($i > 7) { ?>
+                            <?php if ($i >= 5 && $i < 9) { ?>
                                 <?php if( have_rows("obra_$i") ):
                                     while ( have_rows("obra_$i") ) : the_row();
                                         // Imagem
@@ -92,7 +93,7 @@ get_header('exhibition'); ?>
                                 endif; ?>
                             <?php } ?>
                         <?php } ?>
-                    </div>"
+                    </div>
 
                     <div class="room__side room__side--bottom"></div>
                 </div>
