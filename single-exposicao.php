@@ -37,7 +37,12 @@ $entrada = 0; ?>
                 ?>
             </div>
             <div>
-                <?= get_field("nomes_dos_curadores") ?>
+                <?php
+                    $field = get_field_object( 'nomes_dos_curadores' );
+                    $valor = $field['value'];
+                    $nome = $field['choices'][$valor];
+                ?>
+                Curadores: <span class="color-<?php echo esc_attr($valor); ?>"><?php echo esc_html($nome); ?></span>
             </span>
         </h1>
 

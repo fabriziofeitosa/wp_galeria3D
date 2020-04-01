@@ -158,7 +158,14 @@ get_header('exhibition'); ?>
                 </a>
                 <h3 class="slide__title">
                     <span><?= get_field("nome_s")[0]->post_title; ?></span>
-                    <div class="slide__number"><?= get_field("nomes_dos_curadores") ?></div>
+                    <div class="slide__number">
+                        <?php
+                            $field = get_field_object( 'nomes_dos_curadores' );
+                            $valor = $field['value'];
+                            $nome = $field['choices'][$valor];
+                        ?>
+                        Curadores: <span class="color-<?php echo esc_attr($valor); ?>"><?php echo esc_html($nome); ?></span>
+                    </div>
                 </h3>
                 <p class="slide__date"><?php setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
                         date_default_timezone_set('America/Sao_Paulo');
