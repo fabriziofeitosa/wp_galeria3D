@@ -238,15 +238,12 @@ body {
 ###################################################
 */
 
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 1023px) {
 	.js .container > h1 {
-		font-size: 11px;
-	}
-	.gr-gallery figcaption {
-		font-size: 4px;
-		margin-top: 5px;
+		font-size: 14px;
 	}
 }
+
 @media only screen and (max-width: 575px) {
 	.gr-room {
 		height: 75%;
@@ -272,8 +269,13 @@ body {
 		max-height: 40vh;
 	}
 }
-@media only screen and (max-width: 1023px) {
+
+@media only screen and (max-width: 380px) {
 	.js .container > h1 {
-		font-size: 14px;
+		font-size: 11px;
+	}
+	.gr-gallery figcaption {
+		font-size: 4px;
+		margin-top: 5px;
 	}
 }
