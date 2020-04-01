@@ -61,9 +61,11 @@ $entrada = 0; ?>
             </div>
             <!-- Autor do Post -->
             <div class="avatar__author">
-                <?php $author_id = $post->post_author; ?>
-                <span><?php echo get_avatar( get_the_author_meta('ID',$author_id), 22 ); ?></span>
-                <a href="<?php echo get_author_posts_url(get_the_author_meta('ID',$author_id)); ?>">Por <?= get_the_author_meta('display_name',$author_id) ?></a>
+                <a href="<?php echo get_author_posts_url(get_the_author_meta('ID',$author_id)); ?>">Por
+                    <?php $author_id = $post->post_author; ?>
+                    <span><?php echo get_avatar( get_the_author_meta('ID',$author_id), 22 ); ?></span>
+                    <?= get_the_author_meta('display_name',$author_id) ?>
+                </a>
             </div>
         </h1>
 

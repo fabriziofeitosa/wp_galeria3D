@@ -164,10 +164,11 @@ body {
 	z-index: 9999;
 	position: absolute;
 	width: 100%;
-	max-width: 90%;
+	max-width: 400px;
 	height: 280px;
 	padding: 40px;
-	left: 5%;
+	left: 50%;
+	margin-left: -200px;
 	bottom: 0;
 	background: #fff;
 	box-shadow: 0 -1px 3px rgba(0,0,0,0.3);
@@ -254,6 +255,11 @@ body {
 	}
 	.item-artista span {
 		display: block;
+	}
+	.gr-caption {
+		max-width: 90%;
+		left: 5%;
+		margin-left: auto;
 	}
 }
 @media only screen and (max-width: 1023px) {

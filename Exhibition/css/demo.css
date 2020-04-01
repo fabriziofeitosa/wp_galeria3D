@@ -335,11 +335,11 @@ a:focus {
 	font-weight: bold;
 	margin: 1.15em 0 0 0;
 	text-transform: uppercase;
-	color: #333333;
+	color: #000;
 	text-align: right;
 	line-height: 22px;
 }
-.slide__author > .avatar__author img {
+.slide__author .avatar__author img {
 	border-radius: 100%;
 	vertical-align: sub;
 }

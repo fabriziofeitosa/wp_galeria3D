@@ -170,11 +170,12 @@ get_header('exhibition'); ?>
                         echo strftime('%d %b %Y', strtotime($dataFinal));
                     ?></p>
                 <!-- Autor da Postagem -->
-                <div class="slide__author">
+                <div class="slide__author">Por
+                    <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
                     <span class="avatar__author">
                         <?php echo get_avatar( get_the_author_meta( 'ID' ), 22 ); ?>
                     </span>
-                    <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">Por <?php the_author() ?></a>
+                    <?php the_author() ?></a>
                 </div>
             </div>
 
