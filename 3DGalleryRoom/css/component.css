@@ -244,11 +244,14 @@ body {
 	}
 }
 @media only screen and (max-width: 575px) {
+	.gr-room {
+		height: 75%;
+	}
 	.gr-floor {
 		top: 95%;
 	}
 	.gr-gallery nav {
-		bottom: 12%;
+		bottom: 18%;
 	}
 	.js .container > h1 {
 		font-size: 14px;
