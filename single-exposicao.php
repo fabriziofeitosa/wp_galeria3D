@@ -37,7 +37,7 @@ $entrada = 0; ?>
                 ?>
             </div>
             <div>
-                Curadoria
+                <?= get_field("nomes_dos_curadores") ?>
             </span>
         </h1>
 
