@@ -160,11 +160,16 @@ get_header('exhibition'); ?>
                     <span><?= get_field("nome_s")[0]->post_title; ?></span>
                     <div class="slide__number">
                         <?php
-                            $field = get_field_object( 'nomes_dos_curadores' );
-                            $valor = $field['value'];
-                            $nome = $field['choices'][$valor];
-                        ?>
-                        Curadores: <span class="color-<?php echo esc_attr($valor); ?>"><?php echo esc_html($nome); ?></span>
+                        $field = get_field_object( 'nomes_dos_curadores' );
+                        $curadores = array();
+
+                        if( have_rows('nomes_dos_curadores') ):
+                            while( have_rows('nomes_dos_curadores') ): the_row(); 
+                                $id = get_row();
+                                array_push($curadores, $field['choices'][$id]);
+                            endwhile;
+                        endif; ?>
+                        Curadoria: <?php echo implode( ', ', $curadores ); ?>
                     </div>
                 </h3>
                 <p class="slide__date"><?php setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');

@@ -22,3 +22,8 @@ function console_log($output, $with_script_tags = true) {
     }
     echo $js_code;
 }
+
+/////////////////////////////////////////////////////
+
+// Add 5 minute update interval
+// add_filter( 'wp_feed_cache_transient_lifetime',create_function('$a', 'return 300;') );

@@ -38,11 +38,16 @@ $entrada = 0; ?>
             </div>
             <div>
                 <?php
-                    $field = get_field_object( 'nomes_dos_curadores' );
-                    $valor = $field['value'];
-                    $nome = $field['choices'][$valor];
-                ?>
-                Curadores: <span class="color-<?php echo esc_attr($valor); ?>"><?php echo esc_html($nome); ?></span>
+                $field = get_field_object( 'nomes_dos_curadores' );
+                $curadores = array();
+
+                if( have_rows('nomes_dos_curadores') ):
+                    while( have_rows('nomes_dos_curadores') ): the_row(); 
+                        $id = get_row();
+                        array_push($curadores, $field['choices'][$id]);
+                    endwhile;
+                endif; ?>
+                Curadoria: <?php echo implode( ', ', $curadores ); ?>
             </span>
         </h1>
 
