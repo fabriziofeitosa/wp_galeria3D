@@ -24,18 +24,20 @@ $entrada = 0; ?>
             <?= get_the_title() ?>
             <br>
             <!-- Artistas das obras -->
-            <div class="item-artista">
-                <?php
-                $artistas = get_field("nome_s");
-                $qtdArtistas = count($artistas);
-                for ($z=0; $z < $qtdArtistas; $z++) {
-                    echo "<span class='item'>";
-                    echo $artistas[$z]->post_title;
-                    if($z < ($qtdArtistas - 1)) echo ", ";
-                    echo "</span>";
-                }
-                ?>
-            </div>
+            <?php if( get_field("nomes_dos_artistas") ): ?>
+                <div class="item-artista">
+                    <?php
+                    $artistas = get_field("nomes_dos_artistas");
+                    $qtdArtistas = count($artistas);
+                    for ($z=0; $z < $qtdArtistas; $z++) {
+                        echo "<span class='item'>";
+                        echo $artistas[$z]->post_title;
+                        if($z < ($qtdArtistas - 1)) echo ", ";
+                        echo "</span>";
+                    }
+                    ?>
+                </div>
+            <?php endif; ?>
             <div>
                 <?php
                 $field = get_field_object( 'nomes_dos_curadores' );

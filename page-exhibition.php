@@ -157,7 +157,9 @@ get_header('exhibition'); ?>
                     <h2 class="slide__name"><?= the_title() ?></h2>
                 </a>
                 <h3 class="slide__title">
-                    <span><?= get_field("nome_s")[0]->post_title; ?></span>
+                    <?php if( get_field("nomes_dos_artistas") ): ?>
+                        <span><?= get_field("nomes_dos_artistas")[0]->post_title; ?></span>
+                    <?php endif; ?>
                     <div class="slide__number">
                         <?php
                         $field = get_field_object( 'nomes_dos_curadores' );
