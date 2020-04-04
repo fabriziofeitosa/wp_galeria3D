@@ -172,7 +172,7 @@ var Gallery = (function() {
 		defaults = {
 			speed : 800,
 			easing : 'ease-in-out',
-			margin : 140
+			margin : 400
 		},
 		// css transitions and 3d transforms support
 		support = { transitions : Modernizr.csstransitions, transforms3d : Modernizr.csstransforms3d },
@@ -344,7 +344,8 @@ var Gallery = (function() {
 					wallMarginLeft = Math.ceil(totalLeft);
 				}
 				else {
-					totalLeft += lastItemW + Gallery.settings.margin;
+					// totalLeft += lastItemW + Gallery.settings.margin;
+					totalLeft += winsize.width - (lastItemW / 2);
 				}
 
 				lastItemW = itemW;
@@ -355,7 +356,8 @@ var Gallery = (function() {
 			};
 
 			// update wall element's width
-			var wallWidth = wallMarginLeft === 0 ? winsize.width : Math.ceil( wallMarginLeft + ( wall.itemsCount - 1 ) * Gallery.settings.margin + sumWidths + winsize.width / 2 - lastItemW / 2 );
+			// var wallWidth = wallMarginLeft === 0 ? winsize.width : Math.ceil( wallMarginLeft + ( wall.itemsCount - 1 ) * Gallery.settings.margin + sumWidths + winsize.width / 2 - lastItemW / 2 );
+			var wallWidth = wallMarginLeft === 0 ? winsize.width : Math.ceil(wallMarginLeft + (wall.itemsCount - 1) * (winsize.width - (lastItemW / 2)) + sumWidths + winsize.width / 2 - lastItemW / 2 );
 			$wallElem.css( 'width', wallWidth ).find( 'div.gr-floor' ).css( 'width', wallWidth );
 
 		},
