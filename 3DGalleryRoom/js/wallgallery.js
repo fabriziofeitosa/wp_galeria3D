@@ -345,7 +345,7 @@ var Gallery = (function() {
 				}
 				else {
 					// totalLeft += lastItemW + Gallery.settings.margin;
-					totalLeft += winsize.width - (lastItemW / 2);
+					totalLeft += ((lastItemW / 2) + winsize.width) - (itemW / 2);
 				}
 
 				lastItemW = itemW;
@@ -357,7 +357,7 @@ var Gallery = (function() {
 
 			// update wall element's width
 			// var wallWidth = wallMarginLeft === 0 ? winsize.width : Math.ceil( wallMarginLeft + ( wall.itemsCount - 1 ) * Gallery.settings.margin + sumWidths + winsize.width / 2 - lastItemW / 2 );
-			var wallWidth = wallMarginLeft === 0 ? winsize.width : Math.ceil(wallMarginLeft + (wall.itemsCount - 1) * (winsize.width - (lastItemW / 2)) + sumWidths + winsize.width / 2 - lastItemW / 2 );
+			var wallWidth = wallMarginLeft === 0 ? winsize.width : Math.ceil(wall.itemsCount * winsize.width);
 			$wallElem.css( 'width', wallWidth ).find( 'div.gr-floor' ).css( 'width', wallWidth );
 
 		},
