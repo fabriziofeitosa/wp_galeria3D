@@ -115,7 +115,11 @@ get_header('exhibition'); ?>
 
             <!-- NOME DA PÁGINAS -->
             <h1 class="codrops-header__title"><?= get_the_title($postAtual) ?></h1>
-            <!-- <div class="subject">モダンアート</div> -->
+
+            <!-- Logo -->
+            <div class="subject logotipo">
+                <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/Exhibition/img/img-logo-crio-art-black.png" alt="Logo Crio.art">
+            </div>
 
             <!-- SOBRE A PÁGINA -->
             <button class="btn btn--info btn--toggle">
