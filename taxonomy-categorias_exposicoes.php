@@ -166,7 +166,7 @@ get_header('exhibition'); ?>
                         $curadores = array();
 
                         if( have_rows('nomes_dos_curadores') ):
-                            while( have_rows('nomes_dos_curadores') ): the_row(); 
+                            while( have_rows('nomes_dos_curadores') ): the_row();
                                 $id = get_row();
                                 array_push($curadores, $field['choices'][$id]);
                             endwhile;
@@ -178,10 +178,10 @@ get_header('exhibition'); ?>
                         date_default_timezone_set('America/Sao_Paulo');
 
                         // Abertura
-                        $dataAbertura = str_replace("/", "-", get_field("abertura") );
+                        $dataAbertura = str_replace("/", "-", get_field("de") );
                         echo strftime('%d %b %Y', strtotime($dataAbertura));
                     ?> até <?php // Final
-                        $dataFinal = str_replace("/", "-", get_field("exposicao") );
+                        $dataFinal = str_replace("/", "-", get_field("ate") );
                         echo strftime('%d %b %Y', strtotime($dataFinal));
                     ?></p>
                 <!-- Autor da Postagem -->

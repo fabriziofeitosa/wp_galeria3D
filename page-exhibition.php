@@ -182,10 +182,10 @@ get_header('exhibition'); ?>
                         date_default_timezone_set('America/Sao_Paulo');
 
                         // Abertura
-                        $dataAbertura = str_replace("/", "-", get_field("abertura") );
+                        $dataAbertura = str_replace("/", "-", get_field("de") );
                         echo strftime('%d %b %Y', strtotime($dataAbertura));
                     ?> até <?php // Final
-                        $dataFinal = str_replace("/", "-", get_field("exposicao") );
+                        $dataFinal = str_replace("/", "-", get_field("ate") );
                         echo strftime('%d %b %Y', strtotime($dataFinal));
                     ?></p>
                 <!-- Autor da Postagem -->

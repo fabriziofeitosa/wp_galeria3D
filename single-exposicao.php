@@ -61,13 +61,13 @@ $entrada = 0; ?>
             <!-- Datas -->
             <div>De <span style="text-transform: capitalize;">
                 <?php // Abertura
-                    $dataAbertura = str_replace("/", "-", get_field("abertura") );
+                    $dataAbertura = str_replace("/", "-", get_field("de") );
                     echo strftime('%d %b %Y', strtotime($dataAbertura));
                 ?></span>
             </div>
             <div>Até <span style="text-transform: capitalize;">
                 <?php // Final
-                    $dataFinal = str_replace("/", "-", get_field("exposicao") );
+                    $dataFinal = str_replace("/", "-", get_field("ate") );
                     echo strftime('%d %b %Y', strtotime($dataFinal));
                 ?></span>
             </div>
