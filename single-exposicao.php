@@ -98,7 +98,7 @@ $entrada = 0; ?>
                                     $entrada++;
                                 ?>
                                     <figure>
-                                        <div>
+                                        <div class="item-quadro" data-imgreal="<?php echo wp_get_attachment_url($imagem_post) ?>">
                                             <?php echo wp_get_attachment_image( $imagem_post, $size ); ?>
                                         </div>
                                         <figcaption>
@@ -137,7 +137,20 @@ $entrada = 0; ?>
             </div>
         </div>
     </div><!-- /container -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+
+    <!-- The Modal -->
+    <div id="modalGallery" class="modalGallery">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="closeModalGallery">&times;</span>
+
+            <img id="imgModalGallery" style="max-width:100%">
+        </div>
+    </div>
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
     <script src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/3DGalleryRoom/js/wallgallery.js"></script>
     <script>
         $(function() {

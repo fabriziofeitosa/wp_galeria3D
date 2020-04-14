@@ -7,6 +7,7 @@
 
         <link rel="stylesheet" type="text/css" href="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/3DGalleryRoom/css/default.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/3DGalleryRoom/css/component.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/3DGalleryRoom/css/modal.css" />
         <script src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/3DGalleryRoom/js/modernizr.custom.js"></script>
 
         <style>

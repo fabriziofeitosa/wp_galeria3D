@@ -169,6 +169,11 @@ var Gallery = (function() {
 		$window = $( window ),
 		winsize = getWindowSize(),
 
+		// Modal
+		modalGallery = $("#modalGallery"),
+		spanClose = $(".closeModalGallery"),
+		imgModalGallery = $("#imgModalGallery"),
+
 		defaults = {
 			speed : 800,
 			easing : 'ease-in-out',
@@ -298,6 +303,25 @@ var Gallery = (function() {
 				}
 				self.jump( idx );
 			} );
+
+			// ImageModal | Open
+			this.$el.on('click', 'figure .item-quadro', function () {
+				modalGallery.show();
+				var urlImg = $(this).data('imgreal');
+				imgModalGallery.attr("src", urlImg);
+			});
+
+			// ImageModal | Close
+			spanClose.on('click', function () {
+				modalGallery.hide();
+			});
+
+			// ImageModal | Click outside
+			$(document).on('click', function (e) {
+				if ($(e.target).closest('#modalGallery .modal-content').length === 0) {
+					modalGallery.hide();
+				}
+			});
 
 		},
 		getLayoutSettings : function() {

@@ -60,6 +60,11 @@ body {
 	-webkit-transform-style: preserve-3d;
 }
 
+.item-quadro {
+	cursor: -webkit-zoom-in;
+    cursor: -moz-zoom-in;
+}
+
 .no-js .gr-gallery figure {
 	display: inline-block;
 	position: relative;
