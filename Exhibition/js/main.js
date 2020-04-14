@@ -582,5 +582,6 @@ var btnOffInfor = document.querySelector('.codrops-icon.codrops-icon--drop');
 var contentInfor = document.querySelector('.content');
 
 btnOffInfor.addEventListener('click', function(){
+	btnOffInfor.classList.toggle('oculto');
 	contentInfor.classList.toggle('hide');
 });

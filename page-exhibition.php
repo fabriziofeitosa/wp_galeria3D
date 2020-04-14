@@ -180,8 +180,8 @@ get_header('exhibition'); ?>
                 <svg class="icon icon--arrow"><use xlink:href="#icon-arrow"></use></svg>
             </a>
             <a class="codrops-icon codrops-icon--drop" href="#" title="Ocultar Informações">
-                <!-- <svg class="icon icon--drop"><use xlink:href="#icon-drop"></use></svg> -->
-                <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/Exhibition/img/gota.svg" alt="Logo Crio.art">
+                <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/Exhibition/img/gota.svg" alt="Logo Crio.art" class="gotaOff">
+                <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/Exhibition/img/gota-off.svg" alt="Logo Crio.art" class="gotaNormal">
             </a>
         </div>
 

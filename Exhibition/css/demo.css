@@ -269,6 +269,15 @@ img.room__img:hover {
 	width: 24px;
 	vertical-align: bottom;
 }
+.codrops-icon.codrops-icon--drop img.gotaOff {
+	display: none;
+}
+.codrops-icon.codrops-icon--drop.oculto img.gotaNormal {
+	display: none;
+}
+.codrops-icon.codrops-icon--drop.oculto img.gotaOff {
+	display: inline-block;
+}
 
 .subject {
 	font-size: 1.5em;
