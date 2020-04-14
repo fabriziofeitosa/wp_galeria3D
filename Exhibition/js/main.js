@@ -68,7 +68,7 @@
 	// The off canvas menu button.
 	DOM.menuCtrl = document.querySelector('.btn--menu');
 	// The menu overlay.
-	DOM.menuOverlay = DOM.content.querySelector('.overlay--menu');
+	DOM.menuOverlay = document.querySelector('.overlay--menu');
 	// The menu items
 	DOM.menuItems = document.querySelectorAll('.menu > .menu__item');
 	// The info button.
