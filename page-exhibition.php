@@ -49,6 +49,7 @@ get_header('exhibition'); ?>
             <!-- Sala -->
             <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
                 <div class="room <?php echo $addClass = ($primeira == 0) ? 'room--current' : '' ?>">
+                    <?php $primeira++ ?>
 
                     <div class='room__side room__side--left'>
                         <?php for ($i = 1; $i <= 10; $i++) { ?>
@@ -103,53 +104,6 @@ get_header('exhibition'); ?>
     </div><!-- /container -->
 
     <div class="content">
-        <header class="codrops-header">
-            <div class="codrops-links">
-                <a class="codrops-icon codrops-icon--prev" href="<?= home_url(); ?>" title="Voltar a home">
-                    <svg class="icon icon--arrow"><use xlink:href="#icon-arrow"></use></svg>
-                </a>
-                <a class="codrops-icon codrops-icon--drop" href="#" title="Voltar aos artigos">
-                    <svg class="icon icon--drop"><use xlink:href="#icon-drop"></use></svg>
-                </a>
-            </div>
-
-            <!-- NOME DA PÁGINAS -->
-            <h1 class="codrops-header__title"><?= get_the_title($postAtual) ?></h1>
-
-            <!-- Logo -->
-            <div class="subject logotipo">
-                <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/Exhibition/img/img-logo-crio-art-black.png" alt="Logo Crio.art">
-            </div>
-
-            <!-- SOBRE A PÁGINA -->
-            <button class="btn btn--info btn--toggle">
-                <svg class="icon icon--info"><use xlink:href="#icon-info"></use></svg>
-                <svg class="icon icon--cross"><use xlink:href="#icon-cross"></use></svg>
-            </button>
-
-            <!-- MENU SUPERIOR DIREITO -->
-            <button class="btn btn--menu btn--toggle">
-                <svg class="icon icon--menu"><use xlink:href="#icon-menu"></use></svg>
-                <svg class="icon icon--cross"><use xlink:href="#icon-cross"></use></svg>
-            </button>
-            <div class="overlay overlay--menu">
-                <?php
-                    wp_nav_menu(array(
-                        'theme_location'    => 'exhibition_menu',
-                        'menu_class'        => 'menu',
-                        'link_before'       => '<li class="menu__item">',
-                        'link_after'        => '</li>',
-                        'depth'             => 1,
-                    ));
-                ?>
-            </div>
-
-            <!-- SOBRE A PÁGINA | TXT -->
-            <div class="overlay overlay--info">
-                <p class="info"><?= wp_filter_nohtml_kses( get_the_content('','',$postAtual) ); ?></p>
-            </div>
-
-        </header>
 
         <!-- CONTEUDO DO SLIDE -->
         <div class="slides">
@@ -218,6 +172,56 @@ get_header('exhibition'); ?>
             </button>
         </nav>
     </div><!-- /content -->
+
+    <!-- HEADER -->
+    <header class="codrops-header">
+        <div class="codrops-links">
+            <a class="codrops-icon codrops-icon--prev" href="<?= home_url(); ?>" title="Voltar a home">
+                <svg class="icon icon--arrow"><use xlink:href="#icon-arrow"></use></svg>
+            </a>
+            <a class="codrops-icon codrops-icon--drop" href="#" title="Ocultar Informações">
+                <!-- <svg class="icon icon--drop"><use xlink:href="#icon-drop"></use></svg> -->
+                <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/Exhibition/img/gota.svg" alt="Logo Crio.art">
+            </a>
+        </div>
+
+        <!-- NOME DA PÁGINAS -->
+        <h1 class="codrops-header__title"><?= get_the_title($postAtual) ?></h1>
+
+        <!-- Logo -->
+        <div class="subject logotipo">
+            <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/Exhibition/img/img-logo-crio-art-black.png" alt="Logo Crio.art">
+        </div>
+
+        <!-- SOBRE A PÁGINA -->
+        <button class="btn btn--info btn--toggle">
+            <svg class="icon icon--info"><use xlink:href="#icon-info"></use></svg>
+            <svg class="icon icon--cross"><use xlink:href="#icon-cross"></use></svg>
+        </button>
+
+        <!-- MENU SUPERIOR DIREITO -->
+        <button class="btn btn--menu btn--toggle">
+            <svg class="icon icon--menu"><use xlink:href="#icon-menu"></use></svg>
+            <svg class="icon icon--cross"><use xlink:href="#icon-cross"></use></svg>
+        </button>
+        <div class="overlay overlay--menu">
+            <?php
+                wp_nav_menu(array(
+                    'theme_location'    => 'exhibition_menu',
+                    'menu_class'        => 'menu',
+                    'link_before'       => '<li class="menu__item">',
+                    'link_after'        => '</li>',
+                    'depth'             => 1,
+                ));
+            ?>
+        </div>
+
+        <!-- SOBRE A PÁGINA | TXT -->
+        <div class="overlay overlay--info">
+            <p class="info"><?= wp_filter_nohtml_kses( get_the_content('','',$postAtual) ); ?></p>
+        </div>
+
+    </header>
 
     <div class="overlay overlay--loader overlay--active">
         <div class="loader">
