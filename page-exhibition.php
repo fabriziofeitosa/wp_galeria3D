@@ -51,6 +51,15 @@ get_header('exhibition'); ?>
                 <div class="room <?php echo $addClass = ($primeira == 0) ? 'room--current' : '' ?>">
                     <?php $primeira++ ?>
 
+                    <!-- INFORMAÇÕES/DESCRIÇÃO -->
+                    <div class="room_about" style="display: none">
+                        <?php
+                            $content = get_the_content();
+                            $content = wp_strip_all_tags($content);
+                            echo wp_filter_nohtml_kses( $content );
+                        ?>
+                    </div>
+
                     <div class='room__side room__side--left'>
                         <?php for ($i = 1; $i <= 10; $i++) { ?>
                             <?php if ($i < 4) { ?>

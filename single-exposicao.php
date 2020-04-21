@@ -147,7 +147,7 @@ $entrada = 0; ?>
         <div class="modal-content">
             <span class="closeModalGallery">&times;</span>
 
-            <img id="imgModalGallery" style="max-width:100%">
+            <img id="imgModalGallery">
         </div>
     </div>
 

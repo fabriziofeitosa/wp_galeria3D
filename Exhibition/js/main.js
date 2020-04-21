@@ -476,6 +476,11 @@
 		move({ transform: infoTransform, stopTransition: true });
 		// Show info text and animate photos out of the walls.
 		var photos = DOM.rooms[currentRoom].querySelectorAll('.room__img');
+
+		// Carregar informações/texto/descrição sobre a atual galeria
+		var aboutRoom = DOM.rooms[currentRoom].querySelector('.room_about').innerHTML;
+		DOM.infoText.innerHTML = aboutRoom;
+
 		anime.remove(photos);
 		anime({
 			targets: photos,
@@ -576,12 +581,12 @@
 		});
 	});
 
+	var btnOffInfor = document.querySelector('.codrops-icon.codrops-icon--drop');
+	var contentInfor = document.querySelector('.content');
+
+	btnOffInfor.addEventListener('click', function(){
+		btnOffInfor.classList.toggle('oculto');
+		contentInfor.classList.toggle('hide');
+	});
+
 })(window);
-
-var btnOffInfor = document.querySelector('.codrops-icon.codrops-icon--drop');
-var contentInfor = document.querySelector('.content');
-
-btnOffInfor.addEventListener('click', function(){
-	btnOffInfor.classList.toggle('oculto');
-	contentInfor.classList.toggle('hide');
-});

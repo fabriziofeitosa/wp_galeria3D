@@ -20,7 +20,7 @@
     margin: 4% auto; /* 15% from the top and centered */
     padding: 20px;
     min-width: 10%; /* Could be more or less, depending on screen size */
-    max-width: 90%;
+    max-width: inherit; /* Old: 90% */
     display: inline-block;
 }
 
@@ -46,4 +46,15 @@
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+/* Responsivo */
+
+@media only screen and (max-width: 575px) {
+    .modal-content img {
+        max-width: 700px;
+    }
+    .modalGallery .closeModalGallery {
+        position: fixed;
+    }
 }
