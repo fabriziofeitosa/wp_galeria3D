@@ -19,7 +19,6 @@
     background-color: #000;
     margin: 4% auto; /* 15% from the top and centered */
     padding: 20px;
-    border: 1px solid #888;
     min-width: 10%; /* Could be more or less, depending on screen size */
     max-width: 90%;
     display: inline-block;
@@ -39,7 +38,6 @@
     font-weight: bold;
     background-color: #fff;
     width: 28px;
-    border-radius: 5px;
     line-height: 1;
 }
 

@@ -308,7 +308,9 @@ var Gallery = (function() {
 			this.$el.on('click', 'figure .item-quadro', function () {
 				modalGallery.show();
 				var urlImg = $(this).data('imgreal');
+				var borda = $(this).data('borda') ? $(this).data('borda') : 'black';
 				imgModalGallery.attr("src", urlImg);
+				imgModalGallery.parents('.modal-content').css("background-color", borda)
 			});
 
 			// ImageModal | Close

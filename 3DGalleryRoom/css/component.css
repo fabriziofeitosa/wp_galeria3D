@@ -103,7 +103,6 @@ body {
 .gr-gallery figure img {
 	display: block;
 	margin: 0 auto;
-	border: 20px solid #fff;
 
     width: auto;
 	max-width: 80vw;

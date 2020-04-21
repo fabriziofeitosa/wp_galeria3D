@@ -98,7 +98,10 @@ $entrada = 0; ?>
                                     $entrada++;
                                 ?>
                                     <figure>
-                                        <div class="item-quadro" data-imgreal="<?php echo wp_get_attachment_url($imagem_post) ?>">
+                                        <div class="item-quadro"
+                                            data-borda='<?= @get_sub_field('cor_borda') ?>'
+                                            data-imgreal="<?php echo wp_get_attachment_url($imagem_post) ?>"
+                                            style="border-color: <?= @get_sub_field('cor_borda') ?>;">
                                             <?php echo wp_get_attachment_image( $imagem_post, $size ); ?>
                                         </div>
                                         <figcaption>
