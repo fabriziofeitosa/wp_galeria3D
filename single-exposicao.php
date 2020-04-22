@@ -93,15 +93,21 @@ $entrada = 0; ?>
                                 // Imagem
                                 $imagem_post = (is_int(get_sub_field("imagem_$i"))) ? get_sub_field("imagem_$i") : get_sub_field("imagem_$i")['id'];
                                 $size = 'large'; // (thumbnail, medium, large, full or custom size)
+
+                                // Moldura
+                                $molduraFinal = '';
+                                if(get_sub_field("moldura_$i") != '') $molduraFinal = get_sub_field("moldura_$i");
+                                else $molduraFinal = get_field('molduras') ? get_field('molduras') : 'black';
+
                                 // Entradas
                                 if( $imagem_post ):
                                     $entrada++;
                                 ?>
                                     <figure>
                                         <div class="item-quadro"
-                                            data-borda='<?= @get_sub_field('cor_borda') ?>'
+                                            data-borda='<?= $molduraFinal ?>'
                                             data-imgreal="<?php echo wp_get_attachment_url($imagem_post) ?>"
-                                            style="border-color: <?= @get_sub_field('cor_borda') ?>;">
+                                            style="border-color: <?= $molduraFinal ?>;">
                                             <?php echo wp_get_attachment_image( $imagem_post, $size ); ?>
                                         </div>
                                         <figcaption>

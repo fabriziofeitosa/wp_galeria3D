@@ -194,12 +194,12 @@ a:focus {
 	transform: translate3d(0,0,10px);
 	backface-visibility: hidden;
 
+	border: 20px solid #000;
 	transition: all .2s;
 }
 img.room__img:hover {
-    transform: translate3d(0,0,40px);
+    transform: translate3d(0,0,30px) !important;
     box-shadow: 0 0 12px 7px rgba(0, 0, 0, 0.10);
-	border: 2px solid white;
 	cursor: pointer;
 }
 

@@ -54,9 +54,9 @@ get_header('exhibition'); ?>
                     <!-- INFORMAÇÕES/DESCRIÇÃO -->
                     <div class="room_about" style="display: none">
                         <?php
-                            $content = get_the_content();
-                            $content = wp_strip_all_tags($content);
-                            echo wp_filter_nohtml_kses( $content );
+                            echo $content = get_the_content();
+                            // $content = wp_strip_all_tags($content);
+                            // echo wp_filter_nohtml_kses( $content );
                         ?>
                     </div>
 
@@ -65,10 +65,19 @@ get_header('exhibition'); ?>
                             <?php if ($i < 4) { ?>
                                 <?php if( have_rows("obra_$i") ):
                                     while ( have_rows("obra_$i") ) : the_row();
+                                        // Moldura
+                                        $molduraFinal = '';
+                                        if(get_sub_field("moldura_$i") != '') $molduraFinal = get_sub_field("moldura_$i");
+                                        else $molduraFinal = get_field('molduras') ? get_field('molduras') : 'black';
+
                                         // Imagem
                                         $imagem_post = (is_int(get_sub_field("imagem_$i"))) ? get_sub_field("imagem_$i") : get_sub_field("imagem_$i")['id'];
                                         $size = 'large'; // (thumbnail, medium, large, full or custom size)
-                                        echo wp_get_attachment_image( $imagem_post, $size, '', array( "class" => "room__img" ) );
+                                        echo wp_get_attachment_image( $imagem_post, $size, '',
+                                            array(
+                                                "class" => "room__img",
+                                                "style" => "border-color: $molduraFinal"
+                                            ) );
                                     endwhile;
                                 endif;
                             }?>
@@ -80,10 +89,19 @@ get_header('exhibition'); ?>
                             <?php if( $i == 4 ) { ?>
                                 <?php if( have_rows("obra_$i") ):
                                     while ( have_rows("obra_$i") ) : the_row();
+                                        // Moldura
+                                        $molduraFinal = '';
+                                        if(get_sub_field("moldura_$i") != '') $molduraFinal = get_sub_field("moldura_$i");
+                                        else $molduraFinal = get_field('molduras') ? get_field('molduras') : 'black';
+
                                         // Imagem
                                         $imagem_post = (is_int(get_sub_field("imagem_$i"))) ? get_sub_field("imagem_$i") : get_sub_field("imagem_$i")['id'];
                                         $size = 'large'; // (thumbnail, medium, large, full or custom size)
-                                        echo wp_get_attachment_image( $imagem_post, $size, '', array( "class" => "room__img" ) );
+                                        echo wp_get_attachment_image( $imagem_post, $size, '',
+                                            array(
+                                                "class" => "room__img",
+                                                "style" => "border-color: $molduraFinal"
+                                            ) );
                                     endwhile;
                                 endif;
                             }?>
@@ -95,10 +113,19 @@ get_header('exhibition'); ?>
                             <?php if ($i >= 5 && $i < 9) { ?>
                                 <?php if( have_rows("obra_$i") ):
                                     while ( have_rows("obra_$i") ) : the_row();
+                                        // Moldura
+                                        $molduraFinal = '';
+                                        if(get_sub_field("moldura_$i") != '') $molduraFinal = get_sub_field("moldura_$i");
+                                        else $molduraFinal = get_field('molduras') ? get_field('molduras') : 'black';
+
                                         // Imagem
                                         $imagem_post = (is_int(get_sub_field("imagem_$i"))) ? get_sub_field("imagem_$i") : get_sub_field("imagem_$i")['id'];
                                         $size = 'large'; // (thumbnail, medium, large, full or custom size)
-                                        echo wp_get_attachment_image( $imagem_post, $size, '', array( "class" => "room__img" ) );
+                                        echo wp_get_attachment_image( $imagem_post, $size, '',
+                                            array(
+                                                "class" => "room__img",
+                                                "style" => "border-color: $molduraFinal"
+                                            ) );
                                     endwhile;
                                 endif; ?>
                             <?php } ?>
