@@ -153,7 +153,7 @@ $entrada = 0; ?>
         <div class="modal-content">
             <span class="closeModalGallery">&times;</span>
 
-            <img id="imgModalGallery">
+            <img id="imgModalGallery" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/Exhibition/img/img-logo-crio-art-black.png">
         </div>
     </div>
 
