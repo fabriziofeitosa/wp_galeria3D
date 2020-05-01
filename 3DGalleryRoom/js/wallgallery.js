@@ -333,7 +333,7 @@ var Gallery = (function () {
         bodyGeral.removeClass("modal-close");
 
         modalGallery.fadeIn();
-        var urlImg = $(this).data("imgreal");
+        var urlImg = $(this).find(".img-original").attr("src");
         var borda = $(this).data("borda") ? $(this).data("borda") : "black";
         imgModalGallery.attr("src", urlImg);
         imgModalGallery
