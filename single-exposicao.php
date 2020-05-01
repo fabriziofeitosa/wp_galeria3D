@@ -109,6 +109,8 @@ $entrada = 0; ?>
                                             data-imgreal="<?php echo wp_get_attachment_url($imagem_post) ?>"
                                             style="border-color: <?= $molduraFinal ?>;">
                                             <?php echo wp_get_attachment_image( $imagem_post, $size ); ?>
+
+                                            <img src="<?php echo wp_get_attachment_url($imagem_post) ?>" alt="Imagem Original" style="display:none">
                                         </div>
                                         <figcaption>
                                             <h2>

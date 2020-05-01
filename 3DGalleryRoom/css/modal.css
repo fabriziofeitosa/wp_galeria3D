@@ -22,6 +22,9 @@
     min-width: 10%; /* Could be more or less, depending on screen size */
     max-width: inherit; /* Old: 90% */
     display: inline-block;
+
+    transition: all .2s;
+    transform: translateY(-100vh);
 }
 
 .modal-content img {
@@ -46,6 +49,40 @@
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+body.modal-open .modal-content {
+	animation-duration: .5s;
+    animation-name: slidein;
+    transform: translateY(0vh);
+}
+
+body.modal-close .modal-content {
+	animation-duration: .2s;
+    animation-name: slideout;
+    transform: translateY(-100vh);
+}
+
+/* Animação */
+
+@keyframes slidein {
+    from {
+        transform: translateY(-100vh);
+    }
+  
+    to {
+        transform: translateY(0vh);
+    }
+}
+
+@keyframes slideout {
+    from {
+        transform: translateY(0vh);
+    }
+    
+    to {
+        transform: translateY(-100vh);
+    }
 }
 
 /* Responsivo */
