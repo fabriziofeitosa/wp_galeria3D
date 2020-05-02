@@ -349,7 +349,7 @@ var Gallery = (function () {
       });
 
       // ImageModal | Click outside
-      $(document).on("click", function (e) {
+      jQuery(document).on("click", function (e) {
         if ($(e.target).closest("#modalGallery .modal-content").length === 0) {
           modalGallery.delay(200).fadeOut();
           bodyGeral.addClass("modal-close");
