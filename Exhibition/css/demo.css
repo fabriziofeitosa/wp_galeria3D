@@ -464,6 +464,9 @@ img.room__img:hover {
 	max-width: 900px;
 	margin: 0;
 	padding: 1em;
+
+	max-height: 90vh;
+  overflow-y: auto;
 }
 
 .loader {
