@@ -19,7 +19,7 @@ $entrada = 0; ?>
         </div><!--/ Codrops top bar -->
 
         <!-- Rodapé -->
-        <h1>
+        <h1 class="infor-gallery">
             <!-- Nome da exposição -->
             <?= get_the_title() ?>
             <br>
@@ -53,7 +53,7 @@ $entrada = 0; ?>
             </span>
         </h1>
 
-        <h1 class="direita">
+        <h1 class="direita infor-gallery">
             <?php
                 setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
                 date_default_timezone_set('America/Sao_Paulo');
@@ -97,7 +97,7 @@ $entrada = 0; ?>
                                 // Moldura
                                 $molduraFinal = '';
                                 if(get_sub_field("moldura_$i") != '') $molduraFinal = get_sub_field("moldura_$i");
-                                else $molduraFinal = get_field('molduras') ? get_field('molduras') : 'black';
+                                else $molduraFinal = get_field('molduras') ? get_field('molduras') : 'transparent';
 
                                 // Entradas
                                 if( $imagem_post ):
@@ -153,7 +153,6 @@ $entrada = 0; ?>
         <!-- Modal content -->
         <div class="modal-content">
             <span class="closeModalGallery">&times;</span>
-
             <img id="imgModalGallery" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/Exhibition/img/img-logo-crio-art-black.png">
         </div>
     </div>

@@ -68,7 +68,7 @@ get_header('exhibition'); ?>
                                         // Moldura
                                         $molduraFinal = '';
                                         if(get_sub_field("moldura_$i") != '') $molduraFinal = get_sub_field("moldura_$i");
-                                        else $molduraFinal = get_field('molduras') ? get_field('molduras') : 'black';
+                                        else $molduraFinal = get_field('molduras') ? get_field('molduras') : 'transparent';
 
                                         // Imagem
                                         $imagem_post = (is_int(get_sub_field("imagem_$i"))) ? get_sub_field("imagem_$i") : get_sub_field("imagem_$i")['id'];
