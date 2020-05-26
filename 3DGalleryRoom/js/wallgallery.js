@@ -335,6 +335,7 @@ var Gallery = (function () {
         modalGallery.fadeIn();
         var urlImg = $(this).find(".img-original").attr("src");
         var borda = $(this).data("borda") ? $(this).data("borda") : "black";
+        imgModalGallery.attr("src", "");
         imgModalGallery.attr("src", urlImg);
         imgModalGallery
           .parents(".modal-content")
@@ -346,6 +347,9 @@ var Gallery = (function () {
         modalGallery.delay(200).fadeOut();
         bodyGeral.addClass("modal-close");
         bodyGeral.removeClass("modal-open");
+        setTimeout(function () {
+          imgModalGallery.attr("src", "");
+        }, 200);
       });
 
       // ImageModal | Click outside
@@ -354,6 +358,9 @@ var Gallery = (function () {
           modalGallery.delay(200).fadeOut();
           bodyGeral.addClass("modal-close");
           bodyGeral.removeClass("modal-open");
+          setTimeout(function () {
+            imgModalGallery.attr("src", "");
+          }, 200);
         }
       });
     },

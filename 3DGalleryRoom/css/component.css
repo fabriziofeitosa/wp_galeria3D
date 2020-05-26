@@ -7,6 +7,14 @@ body {
 	background: linear-gradient(to bottom, #f0f0f0 0%,#f0f0f0 85%,#3d3737 85%,#3d3737 100%); */
 }
 
+img {
+  width: 600px;
+  height: 450px;
+  background: url(../images/loading.gif) 50% no-repeat;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
 .no-js body {
 	overflow: auto;
 	background: #f0f0f0;

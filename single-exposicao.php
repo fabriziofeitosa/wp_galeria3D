@@ -109,7 +109,7 @@ $entrada = 0; ?>
                                             style="border-color: <?= $molduraFinal ?>;">
                                             <?php echo wp_get_attachment_image( $imagem_post, $size ); ?>
 
-                                            <img class="img-original" src="<?php echo wp_get_attachment_url($imagem_post) ?>" alt="Imagem Original" style="z-index: -9999;position: fixed;top: 10px;left: 10px;">
+                                            <img class="img-original" src="<?php echo wp_get_attachment_url($imagem_post) ?>" alt="Imagem Original" style="z-index: -9999;position: fixed;top: -9999px;left: -9999px;opaticy:0;">
                                         </div>
                                         <figcaption>
                                             <h2>
@@ -153,7 +153,7 @@ $entrada = 0; ?>
         <!-- Modal content -->
         <div class="modal-content">
             <span class="closeModalGallery">&times;</span>
-            <img id="imgModalGallery" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/Exhibition/img/img-logo-crio-art-black.png">
+            <img id="imgModalGallery">
         </div>
     </div>
 
