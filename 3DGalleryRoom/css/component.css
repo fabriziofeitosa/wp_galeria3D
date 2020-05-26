@@ -1,10 +1,10 @@
 body {
 	background: #f0f0f0;
-	background: -moz-linear-gradient(top, #f0f0f0 0%, #f0f0f0 85%, #3d3737 85%, #3d3737 100%);
+	/* background: -moz-linear-gradient(top, #f0f0f0 0%, #f0f0f0 85%, #3d3737 85%, #3d3737 100%);
 	background: -webkit-linear-gradient(top, #f0f0f0 0%,#f0f0f0 85%,#3d3737 85%,#3d3737 100%);
 	background: -o-linear-gradient(top, #f0f0f0 0%,#f0f0f0 85%,#3d3737 85%,#3d3737 100%);
 	background: -ms-linear-gradient(top, #f0f0f0 0%,#f0f0f0 85%,#3d3737 85%,#3d3737 100%);
-	background: linear-gradient(to bottom, #f0f0f0 0%,#f0f0f0 85%,#3d3737 85%,#3d3737 100%);
+	background: linear-gradient(to bottom, #f0f0f0 0%,#f0f0f0 85%,#3d3737 85%,#3d3737 100%); */
 }
 
 .no-js body {
