@@ -344,23 +344,23 @@ var Gallery = (function () {
 
       // ImageModal | Close
       spanClose.on("click", function () {
-        modalGallery.delay(200).fadeOut();
+        modalGallery.delay(100).fadeOut();
         bodyGeral.addClass("modal-close");
         bodyGeral.removeClass("modal-open");
         setTimeout(function () {
           imgModalGallery.attr("src", "");
-        }, 200);
+        }, 500);
       });
 
       // ImageModal | Click outside
       jQuery(document).on("click", function (e) {
         if ($(e.target).closest("#modalGallery .modal-content").length === 0) {
-          modalGallery.delay(200).fadeOut();
+          modalGallery.delay(100).fadeOut();
           bodyGeral.addClass("modal-close");
           bodyGeral.removeClass("modal-open");
           setTimeout(function () {
             imgModalGallery.attr("src", "");
-          }, 200);
+          }, 500);
         }
       });
     },
