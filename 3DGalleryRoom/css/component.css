@@ -322,9 +322,15 @@ img {
 	.js .container > h1 a {
 		color: inherit
 	}
+	.gr-gallery figure {
+		text-align: left;
+	}
 	.gr-gallery figcaption {
+		display: inline-block;
 		margin-top: 10px;
 		font-size: 3px;
+		width: auto;
+		min-width: 40px;
 	}
 }
 
