@@ -335,7 +335,6 @@ var Gallery = (function () {
         modalGallery.fadeIn();
         var urlImg = $(this).find(".img-original").attr("src");
         var borda = $(this).data("borda") ? $(this).data("borda") : "black";
-        imgModalGallery.attr("src", "");
         imgModalGallery.attr("src", urlImg);
         imgModalGallery
           .parents(".modal-content")
@@ -344,23 +343,17 @@ var Gallery = (function () {
 
       // ImageModal | Close
       spanClose.on("click", function () {
-        modalGallery.delay(100).fadeOut();
+        modalGallery.delay(200).fadeOut();
         bodyGeral.addClass("modal-close");
         bodyGeral.removeClass("modal-open");
-        setTimeout(function () {
-          imgModalGallery.attr("src", "");
-        }, 500);
       });
 
       // ImageModal | Click outside
       jQuery(document).on("click", function (e) {
         if ($(e.target).closest("#modalGallery .modal-content").length === 0) {
-          modalGallery.delay(100).fadeOut();
+          modalGallery.delay(200).fadeOut();
           bodyGeral.addClass("modal-close");
           bodyGeral.removeClass("modal-open");
-          setTimeout(function () {
-            imgModalGallery.attr("src", "");
-          }, 500);
         }
       });
     },
