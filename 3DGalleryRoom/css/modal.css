@@ -24,7 +24,7 @@
     display: inline-block;
 
     transition: all .2s;
-    transform: translateY(-100vh);
+    transform: scale(0);
     opacity: 0;
 }
 
@@ -55,14 +55,14 @@
 body.modal-open .modal-content {
 	animation-duration: .5s;
     animation-name: slidein;
-    transform: translateY(0vh);
+    transform: scale(1);
     opacity: 1;
 }
 
 body.modal-close .modal-content {
-	animation-duration: .2s;
+	animation-duration: .5s;
     animation-name: slideout;
-    transform: translateY(-100vh);
+    transform: scale(0);
     opacity: 0;
 }
 
@@ -70,21 +70,21 @@ body.modal-close .modal-content {
 
 @keyframes slidein {
     from {
-        transform: translateY(-100vh);
+        transform: scale(0);
     }
-  
+
     to {
-        transform: translateY(0vh);
+        transform: scale(1);
     }
 }
 
 @keyframes slideout {
     from {
-        transform: translateY(0vh);
+        transform: scale(1);
     }
-    
+
     to {
-        transform: translateY(-100vh);
+        transform: scale(0);
     }
 }
 
