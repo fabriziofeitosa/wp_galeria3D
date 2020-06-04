@@ -334,7 +334,9 @@ var Gallery = (function () {
 
         modalGallery.fadeIn();
         var urlImg = $(this).find(".img-original").attr("src");
-        var borda = $(this).data("borda") ? $(this).data("borda") : "black";
+        var borda = $(this).data("borda")
+          ? $(this).data("borda")
+          : "transparent";
         imgModalGallery.attr("src", "");
         imgModalGallery.attr("src", urlImg);
         imgModalGallery
@@ -344,7 +346,7 @@ var Gallery = (function () {
 
       // ImageModal | Close
       spanClose.on("click", function () {
-        modalGallery.delay(200).fadeOut();
+        modalGallery.delay(100).fadeOut();
         bodyGeral.addClass("modal-close");
         bodyGeral.removeClass("modal-open");
         setTimeout(function () {
@@ -355,7 +357,7 @@ var Gallery = (function () {
       // ImageModal | Click outside
       jQuery(document).on("click", function (e) {
         if ($(e.target).closest("#modalGallery .modal-content").length === 0) {
-          modalGallery.delay(200).fadeOut();
+          modalGallery.delay(100).fadeOut();
           bodyGeral.addClass("modal-close");
           bodyGeral.removeClass("modal-open");
           setTimeout(function () {
