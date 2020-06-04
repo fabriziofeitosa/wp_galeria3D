@@ -7,6 +7,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/Exhibition/css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/Exhibition/css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/Exhibition/css/modal.css" />
 		<script>document.documentElement.className = 'js';</script>
 	</head>
 	<body <?php body_class(); ?>>

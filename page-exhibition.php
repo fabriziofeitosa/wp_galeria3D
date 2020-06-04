@@ -68,7 +68,7 @@ get_header('exhibition'); ?>
                                         // Moldura
                                         $molduraFinal = '';
                                         if(get_sub_field("moldura_$i") != '') $molduraFinal = get_sub_field("moldura_$i");
-                                        else $molduraFinal = get_field('molduras') ? get_field('molduras') : 'black';
+                                        else $molduraFinal = get_field('molduras') ? get_field('molduras') : 'transparent';
 
                                         // Imagem
                                         $imagem_post = (is_int(get_sub_field("imagem_$i"))) ? get_sub_field("imagem_$i") : get_sub_field("imagem_$i")['id'];
@@ -76,8 +76,10 @@ get_header('exhibition'); ?>
                                         echo wp_get_attachment_image( $imagem_post, $size, '',
                                             array(
                                                 "class" => "room__img",
-                                                "style" => "border-color: $molduraFinal"
+                                                "style" => "border-color: $molduraFinal",
+                                                "data-borda" => $molduraFinal
                                             ) );
+                                        echo "<img class='img-original' src='". wp_get_attachment_url($imagem_post) . "' alt='Imagem Original' style='display:none'>";
                                     endwhile;
                                 endif;
                             }?>
@@ -100,8 +102,10 @@ get_header('exhibition'); ?>
                                         echo wp_get_attachment_image( $imagem_post, $size, '',
                                             array(
                                                 "class" => "room__img",
-                                                "style" => "border-color: $molduraFinal"
+                                                "style" => "border-color: $molduraFinal",
+                                                "data-borda" => $molduraFinal
                                             ) );
+                                        echo "<img class='img-original' src='". wp_get_attachment_url($imagem_post) . "' alt='Imagem Original' style='display:none'>";
                                     endwhile;
                                 endif;
                             }?>
@@ -124,8 +128,10 @@ get_header('exhibition'); ?>
                                         echo wp_get_attachment_image( $imagem_post, $size, '',
                                             array(
                                                 "class" => "room__img",
-                                                "style" => "border-color: $molduraFinal"
+                                                "style" => "border-color: $molduraFinal",
+                                                "data-borda" => $molduraFinal
                                             ) );
+                                        echo "<img class='img-original' src='". wp_get_attachment_url($imagem_post) . "' alt='Imagem Original' style='display:none'>";
                                     endwhile;
                                 endif; ?>
                             <?php } ?>
@@ -264,6 +270,15 @@ get_header('exhibition'); ?>
             <div></div>
             <div></div>
             <div></div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="modalGallery" class="modalGallery">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="closeModalGallery">&times;</span>
+            <img id="imgModalGallery">
         </div>
     </div>
 
