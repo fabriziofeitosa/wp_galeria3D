@@ -32,6 +32,12 @@ get_header('exhibition'); ?>
     </svg>
 
     <?php
+        $loop = new WP_Query( array(
+            'post_type' => 'exposicao',
+            'posts_per_page' => -1
+            )
+        );
+
         $postAtual = get_the_ID();
         $postAutor = the_author_meta('id');
     ?>
@@ -41,20 +47,39 @@ get_header('exhibition'); ?>
 
             <?php $primeira = 0 ?>
             <!-- Sala -->
-            <?php if ( !have_posts() ) exit; ?>
-
-            <?php while ( have_posts() ) : the_post(); ?>
+            <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
                 <div class="room <?php echo $addClass = ($primeira == 0) ? 'room--current' : '' ?>">
+                    <?php $primeira++ ?>
+
+                    <!-- INFORMAÇÕES/DESCRIÇÃO -->
+                    <div class="room_about" style="display: none">
+                        <?php
+                            echo $content = get_the_content();
+                            // $content = wp_strip_all_tags($content);
+                            // echo wp_filter_nohtml_kses( $content );
+                        ?>
+                    </div>
 
                     <div class='room__side room__side--left'>
                         <?php for ($i = 1; $i <= 10; $i++) { ?>
                             <?php if ($i < 4) { ?>
                                 <?php if( have_rows("obra_$i") ):
                                     while ( have_rows("obra_$i") ) : the_row();
+                                        // Moldura
+                                        $molduraFinal = '';
+                                        if(get_sub_field("moldura_$i") != '') $molduraFinal = get_sub_field("moldura_$i");
+                                        else $molduraFinal = get_field('molduras') ? get_field('molduras') : 'transparent';
+
                                         // Imagem
                                         $imagem_post = (is_int(get_sub_field("imagem_$i"))) ? get_sub_field("imagem_$i") : get_sub_field("imagem_$i")['id'];
                                         $size = 'large'; // (thumbnail, medium, large, full or custom size)
-                                        echo wp_get_attachment_image( $imagem_post, $size, '', array( "class" => "room__img" ) );
+                                        echo wp_get_attachment_image( $imagem_post, $size, '',
+                                            array(
+                                                "class" => "room__img",
+                                                "style" => "border-color: $molduraFinal",
+                                                "data-borda" => $molduraFinal
+                                            ) );
+                                        echo "<img class='img-original' src='". wp_get_attachment_url($imagem_post) . "' alt='Imagem Original' style='display:none'>";
                                     endwhile;
                                 endif;
                             }?>
@@ -66,10 +91,21 @@ get_header('exhibition'); ?>
                             <?php if( $i == 4 ) { ?>
                                 <?php if( have_rows("obra_$i") ):
                                     while ( have_rows("obra_$i") ) : the_row();
+                                        // Moldura
+                                        $molduraFinal = '';
+                                        if(get_sub_field("moldura_$i") != '') $molduraFinal = get_sub_field("moldura_$i");
+                                        else $molduraFinal = get_field('molduras') ? get_field('molduras') : 'black';
+
                                         // Imagem
                                         $imagem_post = (is_int(get_sub_field("imagem_$i"))) ? get_sub_field("imagem_$i") : get_sub_field("imagem_$i")['id'];
                                         $size = 'large'; // (thumbnail, medium, large, full or custom size)
-                                        echo wp_get_attachment_image( $imagem_post, $size, '', array( "class" => "room__img" ) );
+                                        echo wp_get_attachment_image( $imagem_post, $size, '',
+                                            array(
+                                                "class" => "room__img",
+                                                "style" => "border-color: $molduraFinal",
+                                                "data-borda" => $molduraFinal
+                                            ) );
+                                        echo "<img class='img-original' src='". wp_get_attachment_url($imagem_post) . "' alt='Imagem Original' style='display:none'>";
                                     endwhile;
                                 endif;
                             }?>
@@ -81,10 +117,21 @@ get_header('exhibition'); ?>
                             <?php if ($i >= 5 && $i < 9) { ?>
                                 <?php if( have_rows("obra_$i") ):
                                     while ( have_rows("obra_$i") ) : the_row();
+                                        // Moldura
+                                        $molduraFinal = '';
+                                        if(get_sub_field("moldura_$i") != '') $molduraFinal = get_sub_field("moldura_$i");
+                                        else $molduraFinal = get_field('molduras') ? get_field('molduras') : 'black';
+
                                         // Imagem
                                         $imagem_post = (is_int(get_sub_field("imagem_$i"))) ? get_sub_field("imagem_$i") : get_sub_field("imagem_$i")['id'];
                                         $size = 'large'; // (thumbnail, medium, large, full or custom size)
-                                        echo wp_get_attachment_image( $imagem_post, $size, '', array( "class" => "room__img" ) );
+                                        echo wp_get_attachment_image( $imagem_post, $size, '',
+                                            array(
+                                                "class" => "room__img",
+                                                "style" => "border-color: $molduraFinal",
+                                                "data-borda" => $molduraFinal
+                                            ) );
+                                        echo "<img class='img-original' src='". wp_get_attachment_url($imagem_post) . "' alt='Imagem Original' style='display:none'>";
                                     endwhile;
                                 endif; ?>
                             <?php } ?>
@@ -99,58 +146,11 @@ get_header('exhibition'); ?>
     </div><!-- /container -->
 
     <div class="content">
-        <header class="codrops-header">
-            <div class="codrops-links">
-                <a class="codrops-icon codrops-icon--prev" href="<?= home_url(); ?>" title="Voltar a home">
-                    <svg class="icon icon--arrow"><use xlink:href="#icon-arrow"></use></svg>
-                </a>
-                <a class="codrops-icon codrops-icon--drop" href="#" title="Voltar aos artigos">
-                    <svg class="icon icon--drop"><use xlink:href="#icon-drop"></use></svg>
-                </a>
-            </div>
-
-            <!-- NOME DA PÁGINAS -->
-            <h1 class="codrops-header__title"><?= get_the_title($postAtual) ?></h1>
-
-            <!-- Logo -->
-            <div class="subject logotipo">
-                <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/Exhibition/img/img-logo-crio-art-black.png" alt="Logo Crio.art">
-            </div>
-
-            <!-- SOBRE A PÁGINA -->
-            <button class="btn btn--info btn--toggle">
-                <svg class="icon icon--info"><use xlink:href="#icon-info"></use></svg>
-                <svg class="icon icon--cross"><use xlink:href="#icon-cross"></use></svg>
-            </button>
-
-            <!-- MENU SUPERIOR DIREITO -->
-            <button class="btn btn--menu btn--toggle">
-                <svg class="icon icon--menu"><use xlink:href="#icon-menu"></use></svg>
-                <svg class="icon icon--cross"><use xlink:href="#icon-cross"></use></svg>
-            </button>
-            <div class="overlay overlay--menu">
-                <?php
-                    wp_nav_menu(array(
-                        'theme_location'    => 'exhibition_menu',
-                        'menu_class'        => 'menu',
-                        'link_before'       => '<li class="menu__item">',
-                        'link_after'        => '</li>',
-                        'depth'             => 1,
-                    ));
-                ?>
-            </div>
-
-            <!-- SOBRE A PÁGINA | TXT -->
-            <div class="overlay overlay--info">
-                <p class="info"><?= wp_filter_nohtml_kses( category_description() ); ?></p>
-            </div>
-
-        </header>
 
         <!-- CONTEUDO DO SLIDE -->
         <div class="slides">
 
-            <?php while ( have_posts() ) : the_post(); ?>
+            <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
             <div class="slide">
                 <a href="<?= esc_url(get_permalink()) ?>">
@@ -166,7 +166,7 @@ get_header('exhibition'); ?>
                         $curadores = array();
 
                         if( have_rows('nomes_dos_curadores') ):
-                            while( have_rows('nomes_dos_curadores') ): the_row();
+                            while( have_rows('nomes_dos_curadores') ): the_row(); 
                                 $id = get_row();
                                 array_push($curadores, $field['choices'][$id]);
                             endwhile;
@@ -215,11 +215,70 @@ get_header('exhibition'); ?>
         </nav>
     </div><!-- /content -->
 
+    <!-- HEADER -->
+    <header class="codrops-header">
+        <div class="codrops-links">
+            <a class="codrops-icon codrops-icon--prev" href="<?= home_url(); ?>" title="Voltar a home">
+                <svg class="icon icon--arrow"><use xlink:href="#icon-arrow"></use></svg>
+            </a>
+            <a class="codrops-icon codrops-icon--drop" href="#" title="Ocultar Informações">
+                <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/Exhibition/img/gota.svg" alt="Logo Crio.art" class="gotaOff">
+                <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/Exhibition/img/gota-off.svg" alt="Logo Crio.art" class="gotaNormal">
+            </a>
+        </div>
+
+        <!-- NOME DA PÁGINAS -->
+        <h1 class="codrops-header__title"><?= get_the_title($postAtual) ?></h1>
+
+        <!-- Logo -->
+        <div class="subject logotipo">
+            <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/Exhibition/img/img-logo-crio-art-black.png" alt="Logo Crio.art">
+        </div>
+
+        <!-- SOBRE A PÁGINA -->
+        <button class="btn btn--info btn--toggle">
+            <svg class="icon icon--info"><use xlink:href="#icon-info"></use></svg>
+            <svg class="icon icon--cross"><use xlink:href="#icon-cross"></use></svg>
+        </button>
+
+        <!-- MENU SUPERIOR DIREITO -->
+        <button class="btn btn--menu btn--toggle">
+            <svg class="icon icon--menu"><use xlink:href="#icon-menu"></use></svg>
+            <svg class="icon icon--cross"><use xlink:href="#icon-cross"></use></svg>
+        </button>
+        <div class="overlay overlay--menu">
+            <?php
+                wp_nav_menu(array(
+                    'theme_location'    => 'exhibition_menu',
+                    'menu_class'        => 'menu',
+                    'link_before'       => '<li class="menu__item">',
+                    'link_after'        => '</li>',
+                    'depth'             => 1,
+                ));
+            ?>
+        </div>
+
+        <!-- SOBRE A PÁGINA | TXT -->
+        <div class="overlay overlay--info">
+            <p class="info"><?= wp_filter_nohtml_kses( get_the_content('','',$postAtual) ); ?></p>
+        </div>
+
+    </header>
+
     <div class="overlay overlay--loader overlay--active">
         <div class="loader">
             <div></div>
             <div></div>
             <div></div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="modalGallery" class="modalGallery">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="closeModalGallery">&times;</span>
+            <img id="imgModalGallery">
         </div>
     </div>
 
